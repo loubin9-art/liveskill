@@ -1,0 +1,35 @@
+{
+  "name": "stock-briefing",
+  "version": "1.0.0",
+  "description": "Daily stock market briefing skill with multi-source data integration (Jin10, East Money, Tonghuashun, Xueqiu)",
+  "main": "scripts/briefing.mjs",
+  "type": "module",
+  "scripts": {
+    "briefing": "node scripts/briefing.mjs",
+    "test": "node scripts/briefing.mjs --test"
+  },
+  "keywords": [
+    "stock",
+    "market",
+    "briefing",
+    "jin10",
+    "east-money",
+    "tonghuashun",
+    "xueqiu",
+    "a-shares",
+    "hk-stocks",
+    "us-stocks",
+    "finance",
+    "openclaw-skill"
+  ],
+  "author": "叶小助",
+  "license": "MIT",
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loubin9-art/liveskill.git"
+  }
+}

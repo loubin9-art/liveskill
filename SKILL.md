@@ -20,6 +20,10 @@ A comprehensive daily stock market briefing skill that aggregates data from mult
 6. **美联储动态 (Fed Updates)** - Federal Reserve news
 7. **热点板块 (Hot Sectors)** - Top performing sectors
 
+### Output Methods
+- **Console Output** - Terminal display with color formatting
+- **DingTalk Push** - Automatic push to DingTalk group via webhook
+
 ## Installation
 
 ### Prerequisites
@@ -42,6 +46,7 @@ clawhub install stock-briefing
 3. Set environment variables:
    ```bash
    export TAVILY_API_KEY="your-api-key"
+   export DINGTALK_WEBHOOK="your-dingtalk-webhook-url"
    ```
 
 ## Usage
@@ -56,12 +61,28 @@ The skill includes automatic cron jobs for:
 - **Morning briefing**: 10:00 AM (Mon-Fri)
 - **Afternoon briefing**: 17:00 PM (Mon-Fri)
 
+### DingTalk Integration
+To enable DingTalk push notifications:
+
+1. Create a DingTalk robot in your group:
+   - Go to group settings → Smart Assistant → Add Robot
+   - Select "Custom" robot type
+   - Copy the Webhook URL
+
+2. Set environment variable:
+   ```bash
+   export DINGTALK_WEBHOOK="https://oapi.dingtalk.com/robot/send?access_token=YOUR_TOKEN"
+   ```
+
+3. Run the briefing - it will automatically push to DingTalk
+
 ## Configuration
 
 ### Environment Variables
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `TAVILY_API_KEY` | Yes | For US market data and news search |
+| `DINGTALK_WEBHOOK` | No | DingTalk robot webhook URL for push notifications |
 
 ### Customize Output
 Edit `scripts/briefing.mjs` to:
@@ -93,6 +114,11 @@ Edit `scripts/briefing.mjs` to:
 - Market heat indicators
 
 ## Version History
+
+### v1.1.0 (2026-03-10)
+- Added DingTalk push notification support
+- Improved markdown formatting for DingTalk
+- Added environment variable configuration for webhook
 
 ### v1.0.0 (2026-03-10)
 - Initial release
